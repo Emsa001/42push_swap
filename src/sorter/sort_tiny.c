@@ -12,6 +12,21 @@
 
 #include "../../includes/push_swap.h"
 
+void sort_three(t_stacks **stacks)
+{
+    t_stack	*a;
+	int		max_index;
+
+	a = (*stacks)->a;
+	max_index = find_max(a);
+	if (max_index == 0)
+		ra(a);
+	else if (max_index == 1)
+		rra(a);
+	if (a->arr[0] > a->arr[1])
+		sa(a);
+}
+
 static int	more_than_three(t_stacks **stacks)
 {
 	t_stack	*a;

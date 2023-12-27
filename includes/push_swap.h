@@ -31,7 +31,51 @@ typedef struct s_stacks
 {
 	t_stack	*a;
 	t_stack	*b;
+	struct t_values		*values;
+	struct t_moves		*moves;
+	struct t_cheap		*cheap;
 }			t_stacks;
+
+typedef struct t_values
+{
+	int					max_a;
+	int					min_a;
+	int					max_b;
+	int					min_b;
+}						t_values;
+
+typedef struct t_moves
+{
+	int					cost;
+	int					sa;
+	int					sb;
+	int					ss;
+	int					pa;
+	int					pb;
+	int					ra;
+	int					rb;
+	int					rr;
+	int					rra;
+	int					rrb;
+	int					rrr;
+}						t_moves;
+
+typedef struct t_cheap
+{
+	int					cost;
+	int					sa;
+	int					sb;
+	int					ss;
+	int					pa;
+	int					pb;
+	int					ra;
+	int					rb;
+	int					rr;
+	int					rra;
+	int					rrb;
+	int					rrr;
+}						t_cheap;
+
 
 void		read_args(char **args, t_stacks **stacks);
 void		init_stacks(t_stacks **stack);
@@ -40,12 +84,22 @@ void		ft_error(char *msg, t_stacks *stacks);
 void		free_stacks(t_stacks *stacks);
 
 void		sort(t_stacks **stacks);
+void 		sort_three(t_stacks **stacks);
 void		sort_tiny(t_stacks **stacks);
 void		sort_large(t_stacks **stacks);
 
 int			find_max(t_stack *stack);
 int			find_min(t_stack *stack);
 int			is_sorted(t_stack *stack);
+
+void	check_max_min_b(t_stacks *stacks);
+void	new_max_or_min_stack_b(t_stacks *stacks);
+void	check_moves(t_stacks *stacks);
+void	check_cost(t_stacks *stacks, int i);
+void	check_double_moves(t_stacks *stacks);
+void	get_top_stack_a(t_stacks *stacks, int i);
+void	new_num_in_stack_b(t_stacks *stacks, int num);
+void	move_stack_a(t_stacks *stacks);
 
 void		sa(t_stack *a);
 void		sb(t_stack *b);

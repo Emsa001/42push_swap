@@ -79,10 +79,94 @@ void	sort_large(t_stacks **stacks)
 
 */
 
+// int find_correct_position(t_stack *stack, int value)
+// {
+//     int i = 0;
+//     while (i < stack->size)
+//     {
+//         if (stack->arr[i] > value)
+//             return (i);
+//         i++;
+//     }
+//     return (i);
+// }
+
+// int ft_min(int a, int b)
+// {
+//     if (a < b)
+//         return (a);
+//     return (b);
+// }
+
+// int find_cheapest(t_stacks *stacks){
+//     int moves = 1;
+//     int cheapest = INT_MAX;
+//     int index = 0;
+//     int i = 0;
+
+//     while(i < stacks->a->size)
+//     {
+//         int pos_in_a = i;
+//         int pos_in_b = find_correct_position(stacks->b, stacks->a->arr[i]);
+//         int rotate_b = ft_min(pos_in_b, stacks->b->size - pos_in_b);
+//         moves = pos_in_a + rotate_b + 1;
+//         if (moves < cheapest){
+//             index = i;
+//             cheapest = moves;
+//         }
+//         printf("num: %d moves: %d\n",stacks->a->arr[i], moves);
+//         i++;
+//     }
+
+//     return (index);
+// }
+
+void	do_cheap_moves(t_stacks *stacks)
+{
+	while (stacks->cheap->ra-- != 0)
+		ra(stacks->a);
+	while (stacks->cheap->rb-- != 0)
+		rb(stacks->b);
+	while (stacks->cheap->rr-- != 0)
+		rr(stacks);
+	while (stacks->cheap->rra-- != 0)
+		rra(stacks->a);
+	while (stacks->cheap->rrb-- != 0)
+		rrb(stacks->b);
+	while (stacks->cheap->rrr-- != 0)
+		rrr(stacks);
+	while (stacks->cheap->pb-- != 0)
+		pb(stacks);
+}
+
+void	move_cheapest(t_stacks *stacks)
+{
+	struct t_moves	*moves;
+	struct t_cheap	*cheap;
+	t_values		*values;
+
+	moves = ft_calloc(1, sizeof(t_moves));
+	stacks->moves = moves;
+	cheap = ft_calloc(1, sizeof(t_cheap));
+	stacks->cheap = cheap;
+	values = ft_calloc(1, sizeof(t_values));
+	stacks->values = values;
+	while (stacks->a->size != 3)
+	{
+        check_max_min_b(stacks);
+        // printf("min_b: %d\n", stacks->values->min_b);
+		// printf("max_b: %d\n", stacks->values->max_b);
+		check_moves(stacks);
+		do_cheap_moves(stacks);
+	}
+}
 
 void sort_large(t_stacks **stacks)
-{
+{   
     pb(*stacks);
     pb(*stacks);
-    // find the number with least amount of moves to push to b in correct order
+    move_cheapest(*stacks);
+    sort_three(stacks);
+    // move_stack_a(*stacks);
+    // // find the number with least amount of moves to push to b in correct order
 }

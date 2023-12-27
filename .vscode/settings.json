@@ -37,6 +37,9 @@
         "__tree": "c",
         "list": "c",
         "map": "c",
-        "queue": "c"
-    }
+        "queue": "c",
+        "stdlib.h": "c",
+        "limits.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

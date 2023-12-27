@@ -57,6 +57,6 @@ re: fclean all
 t: 
 	make
 	clear
-	./$(NAME) 9 5 2 8 6 3 7 4 1
+	./$(NAME) 5 2 7 1 6 3 9 4 8
 	
 .PHONY: all clean fclean re
