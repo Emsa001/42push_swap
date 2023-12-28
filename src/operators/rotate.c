@@ -51,7 +51,8 @@ void rb(t_stack *stack)
 void rr(t_stacks *stacks)
 {
     if(stacks->a->size > 0 && stacks->b->size > 0){
-        ra(stacks->a);
-        rb(stacks->b);
+        rotate(stacks->a);
+        rotate(stacks->b);
+        ft_putendl_fd("rr", 1);
     }
 }

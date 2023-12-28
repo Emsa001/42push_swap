@@ -78,7 +78,7 @@ typedef struct t_cheap
 }						t_cheap;
 
 
-void		read_args(char **args, t_stacks **stacks);
+void		read_args(int nb, char **args, t_stacks **stacks);
 void		init_stacks(t_stacks **stack);
 
 void		ft_error(char *msg, t_stacks *stacks);

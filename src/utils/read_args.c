@@ -80,7 +80,7 @@ int	multi_args(char **args, t_stack **stack)
 	return 0;
 }
 
-void read_args(char **args, t_stacks **stacks)
+void read_args(int nb, char **args, t_stacks **stacks)
 {
 	int n = 0;
 	while (args[n]) n++; 
@@ -92,7 +92,7 @@ void read_args(char **args, t_stacks **stacks)
 		ft_error("Error", *stacks);
 	}
 
-	if (!args[1])
+	if (nb < 2)
 		ft_error(NULL, *stacks);
 
 	if(multi_args(args,&(*stacks)->a) == -1){

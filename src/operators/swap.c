@@ -46,7 +46,8 @@ void sb(t_stack *stack)
 void ss(t_stacks *stacks)
 {
     if(stacks->a->size > 0 && stacks->b->size > 0){
-        sa(stacks->a);
-        sb(stacks->b);
+        swap(stacks->a);
+        swap(stacks->b);
+        ft_putendl_fd("ss", 1);
     }
 }

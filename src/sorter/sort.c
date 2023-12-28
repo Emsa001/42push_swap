@@ -14,7 +14,6 @@
 
 void	sort(t_stacks **stacks)
 {
-	int	min_index;
 	const int	len = (*stacks)->a->size;
 
 	if (len <= 5)

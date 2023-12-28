@@ -44,16 +44,15 @@ int	main(int nb, char **args)
 	init_stacks(&stacks);
 
 	// Read args and check for errors
-	read_args(args, &stacks);
+	read_args(nb, args, &stacks);
 
 	// sort the stack
 	sort(&stacks);
 
 	// show results
-	// show_results(stacks);
+	show_results(stacks);
 
 	// free memory
 	free_stacks(stacks);
-
 	return (0);
 }
