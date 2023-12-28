@@ -46,4 +46,6 @@ void	init_stacks(t_stacks **stacks)
 	(*stacks)->b->arr = NULL;
 	(*stacks)->a->size = 0;
 	(*stacks)->b->size = 0;
+	(*stacks)->a->name = 'a';
+	(*stacks)->b->name = 'b';
 }

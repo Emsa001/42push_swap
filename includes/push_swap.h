@@ -25,6 +25,7 @@ typedef struct s_stack
 {
 	int		*arr;
 	int		size;
+	char	name;
 }			t_stack;
 
 typedef struct s_stacks
@@ -92,7 +93,7 @@ int			find_max(t_stack *stack);
 int			find_min(t_stack *stack);
 int			is_sorted(t_stack *stack);
 
-void	check_max_min_b(t_stacks *stacks);
+void	check_max_min(t_stacks *stacks, t_stack *stack);
 void	new_max_or_min_stack_b(t_stacks *stacks);
 void	check_moves(t_stacks *stacks);
 void	check_cost(t_stacks *stacks, int i);
@@ -100,6 +101,11 @@ void	check_double_moves(t_stacks *stacks);
 void	get_top_stack_a(t_stacks *stacks, int i);
 void	new_num_in_stack_b(t_stacks *stacks, int num);
 void	move_stack_a(t_stacks *stacks);
+
+void	new_min_stack_a(t_stacks *stacks);
+void	new_max_stack_a(t_stacks *stacks);
+void	new_elem_stack_a(t_stacks *stacks);
+int	find_index_stack_a(t_stacks *stacks, int nbr);
 
 void		sa(t_stack *a);
 void		sb(t_stack *b);

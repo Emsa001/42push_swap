@@ -1,41 +1,51 @@
 #include "../../includes/push_swap.h"
 
-void	check_min_b(t_stacks *stacks);
-void	check_max_b(t_stacks *stacks);
+void	check_min(t_stacks *stacks, t_stack *stack);
+void	check_max(t_stacks *stacks, t_stack *stack);
 
-void	check_max_min_b(t_stacks *stacks)
+void	check_max_min(t_stacks *stacks, t_stack *stack)
 {
-	if (stacks->b->size > 0)
+	if (stack->size > 0)
 	{
-		check_max_b(stacks);
-		check_min_b(stacks);
+		check_max(stacks, stack);
+		check_min(stacks, stack);
 	}
 }
 
-void	check_min_b(t_stacks *stacks)
+void	check_min(t_stacks *stacks, t_stack *stack)
 {
 	int	i;
+	int *min;
 
 	i = 0;
-	stacks->values->min_b = stacks->b->arr[0];
-	while (i < stacks->b->size)
+	if(stack->name == 'a')
+		min = &stacks->values->min_a;
+	else
+		min = &stacks->values->min_b;
+	*min = stack->arr[0];
+	while (i < stack->size)
 	{
-		if (stacks->values->min_b > stacks->b->arr[i])
-			stacks->values->min_b = stacks->b->arr[i];
+		if (*min > stack->arr[i])
+			*min = stack->arr[i];
 		i++;
 	}
 }
 
-void	check_max_b(t_stacks *stacks)
+void	check_max(t_stacks *stacks, t_stack *stack)
 {
 	int	i;
+	int *max;
 
 	i = 0;
-	stacks->values->max_b = stacks->b->arr[0];
-	while (i < stacks->b->size)
+	if(stack->name == 'a')
+		max = &stacks->values->max_a;
+	else
+		max = &stacks->values->max_b;
+	*max = stack->arr[0];
+	while (i < stack->size)
 	{
-		if (stacks->values->max_b < stacks->b->arr[i])
-			stacks->values->max_b = stacks->b->arr[i];
+		if (*max < stack->arr[i])
+			*max = stack->arr[i];
 		i++;
 	}
 }
