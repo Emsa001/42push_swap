@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS_NAME = checker
 
 # Compiler and Flags
 CC = gcc
@@ -18,14 +19,15 @@ CFLAGS = -Wall -Wextra -Werror
 
 # Source Files
 SRC_DIR = src
+SRC_DIR_BONUS = bonus
 INCLUDES_DIR = includes
+
 SRC = $(wildcard $(SRC_DIR)/**/*.c) $(wildcard $(SRC_DIR)/*.c)
+SRC_BONUS = $(wildcard $(SRC_DIR_BONUS)/*.c)
 
-# Object Directory
 OBJ_DIR = obj
-
-# Object Files
 OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
+OBJ_BONUS = $(patsubst $(SRC_DIR_BONUS)/%.c, $(OBJ_DIR)/%.o, $(SRC_BONUS))
 
 # Libft
 LIBFT_DIR = $(INCLUDES_DIR)/libft
@@ -54,9 +56,16 @@ fclean: clean
 
 re: fclean all
 
+bonus: $(OBJ_BONUS)
+	$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(BONUS_NAME)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR_BONUS)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+
 t: 
 	make
 	clear
 	./$(NAME) 5 2 7 1 6 3 9 4 8
 	
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus t
