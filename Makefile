@@ -23,11 +23,12 @@ SRC_DIR_BONUS = bonus
 INCLUDES_DIR = includes
 
 SRC = $(wildcard $(SRC_DIR)/**/*.c) $(wildcard $(SRC_DIR)/*.c)
-SRC_BONUS = $(wildcard $(SRC_DIR_BONUS)/*.c)
+SRC_BONUS = $(wildcard $(SRC_DIR_BONUS)/**/*.c) $(wildcard $(SRC_DIR_BONUS)/*.c)
 
 OBJ_DIR = obj
+OBJ_DIR_BONUS = obj_bonus
 OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
-OBJ_BONUS = $(patsubst $(SRC_DIR_BONUS)/%.c, $(OBJ_DIR)/%.o, $(SRC_BONUS))
+OBJ_BONUS = $(patsubst $(SRC_DIR_BONUS)/%.c, $(OBJ_DIR_BONUS)/%.o, $(SRC_BONUS))
 
 # Libft
 LIBFT_DIR = $(INCLUDES_DIR)/libft
@@ -56,10 +57,10 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(OBJ_BONUS)
-	$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(BONUS_NAME)
+bonus: $(LIBFT) $(OBJ_BONUS)
+	$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) -o $(BONUS_NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR_BONUS)/%.c
+$(OBJ_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 

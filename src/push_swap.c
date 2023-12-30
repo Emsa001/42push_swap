@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+// TODO: norminette | read args
 
 void	show_results(t_stacks *stacks)
 {
@@ -50,7 +51,7 @@ int	main(int nb, char **args)
 	sort(&stacks);
 
 	// show results
-	show_results(stacks);
+	// show_results(stacks);
 
 	// free memory
 	free_stacks(stacks);

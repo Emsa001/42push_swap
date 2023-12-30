@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../checker.h"
 
 /*
 
@@ -50,12 +50,10 @@ static int push(t_stack *s1, t_stack *s2)
 
 void pa(t_stacks *stacks)
 {
-	if(push(stacks->b, stacks->a) != -1)
-		ft_putendl_fd("pa", 1);
+	push(stacks->b, stacks->a);
 }
 
 void pb(t_stacks *stacks)
 {
-	if(push(stacks->a, stacks->b) != -1)
-		ft_putendl_fd("pb", 1);
+	push(stacks->a, stacks->b);
 }

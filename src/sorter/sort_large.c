@@ -66,11 +66,20 @@ void	move_cheapest(t_stacks *stacks)
 	}
 }
 
+static void free_mem(t_stacks *stacks){
+	free(stacks->moves);
+	free(stacks->cheap);
+	free(stacks->values);
+}
+
+
 void sort_large(t_stacks **stacks)
 {   
-    pb(*stacks);
-    pb(*stacks);
-    move_cheapest(*stacks);
-    sort_three(stacks);
-    move_stack_a(*stacks);
+	pb(*stacks);
+	pb(*stacks);
+	move_cheapest(*stacks);
+	sort_three(stacks);
+	move_stack_a(*stacks);
+
+	free_mem(*stacks);
 }

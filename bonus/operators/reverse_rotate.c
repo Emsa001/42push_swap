@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../checker.h"
 
 /*
 
@@ -38,21 +38,16 @@ static int reverse_rotate(t_stack *stack){
 
 void rra(t_stack *stack)
 {
-    if(reverse_rotate(stack) != -1)
-        ft_putendl_fd("rra", 1);
+    reverse_rotate(stack);
 }
 
 void rrb(t_stack *stack)
 {
-    if(reverse_rotate(stack) != -1)
-        ft_putendl_fd("rrb", 1);
+    reverse_rotate(stack);
 }
 
 void rrr(t_stacks *stacks)
 {
-    if(stacks->a->size > 0 && stacks->b->size > 0){
-        reverse_rotate(stacks->a);
-        reverse_rotate(stacks->b);
-        ft_putendl_fd("rrr", 1);
-    }
+    reverse_rotate(stacks->a);
+    reverse_rotate(stacks->b);
 }

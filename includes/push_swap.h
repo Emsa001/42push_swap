@@ -105,7 +105,7 @@ void	move_stack_a(t_stacks *stacks);
 void	new_min_stack_a(t_stacks *stacks);
 void	new_max_stack_a(t_stacks *stacks);
 void	new_elem_stack_a(t_stacks *stacks);
-int	find_index_stack_a(t_stacks *stacks, int nbr);
+int		find_index_stack_a(t_stacks *stacks, int nbr);
 
 void		sa(t_stack *a);
 void		sb(t_stack *b);
