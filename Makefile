@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
-BONUS_NAME = checker
+NAME_BONUS = checker
 
 # Compiler and Flags
 CC = gcc
@@ -50,15 +50,17 @@ $(LIBFT):
 clean:
 	$(LIBFT_MAKE) clean
 	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR_BONUS)
 
 fclean: clean
 	$(LIBFT_MAKE) fclean
 	rm -f $(NAME)
+	rm -f $(NAME_BONUS)
 
 re: fclean all
 
 bonus: $(LIBFT) $(OBJ_BONUS)
-	$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) -o $(BONUS_NAME)
+	$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) -o $(NAME_BONUS)
 
 $(OBJ_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 	@mkdir -p $(dir $@)
