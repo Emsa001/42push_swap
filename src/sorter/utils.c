@@ -54,33 +54,6 @@ int	find_min(t_stack *stack)
 	return (index);
 }
 
-int *sort_int_array(int *arr, int size)
-{
-	int i;
-	int j;
-	int temp;
-
-	i = 0;
-	j = 0;
-	temp = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size )
-		{
-			if(arr[i] > arr[j])
-			{
-				temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (arr);
-}
-
 int is_sorted(t_stack *stack)
 {
     int i;

@@ -40,37 +40,45 @@ int	check_duplicates(t_stack *stack)
 	return 0;
 }
 
-int	multi_args(char **args, t_stack **stack)
+long int process_arg(char *arg, int *sign)
 {
-	int			i;
-	int			j;
-	int			sign;
-	long int	num;
+	long int num = 0;
+	int j = 0;
+
+	while (arg[j])
+	{
+		if (arg[j] == '-')
+		{
+			if (*sign == -1)
+				return -1;
+			*sign = -1;
+			j++;
+		}
+		else if (!ft_isdigit(arg[j]))
+			return -1;
+		num = num * 10 + arg[j] - '0';
+		if (num > INT_MAX)
+			return -1;
+		j++;
+	}
+
+	return num;
+}
+
+int multi_args(char **args, t_stack **stack)
+{
+	int i;
+	int sign;
+	long int num;
 
 	sign = 1;
 	i = 1;
-	j = 0;
-	
+
 	while (args[i])
 	{
-		num = 0;
-		j = 0;
-		while (args[i][j])
-		{
-			if (args[i][j] == '-')
-			{
-				if (sign == -1)
-					return -1;
-				sign = -1;
-				j++;
-			}
-			else if (!ft_isdigit(args[i][j]))
-				return -1;
-			num = num * 10 + args[i][j] - '0';
-			if (num > INT_MAX)
-				return -1;
-			j++;
-		}
+		num = process_arg(args[i], &sign);
+		if (num == -1)
+			return -1;
 		(*stack)->arr[i - 1] = (int)num * sign;
 		(*stack)->size++;
 		i++;

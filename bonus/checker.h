@@ -29,7 +29,6 @@ void		free_stacks(t_stacks *stacks);
 int 		is_sorted(t_stack *stack);
 void 		read_args(int nb, char **args, t_stacks **stacks);
 
-
 void		sa(t_stack *a);
 void		sb(t_stack *b);
 void		ss(t_stacks *stacks);

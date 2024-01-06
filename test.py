@@ -12,8 +12,8 @@ def generate_push_swap_commands(numbers):
 
 def generate_100_sets_and_commands():
     for _ in range(100):
-        size = 500  # You can adjust the range of the size as needed
-        max_operations = 5500
+        size = 100  # You can adjust the range of the size as needed
+        max_operations = 700
 
         random_numbers = generate_random_input(size)
         push_swap_commands = generate_push_swap_commands(random_numbers)

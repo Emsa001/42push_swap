@@ -1,7 +1,13 @@
 #include "../../includes/push_swap.h"
 
-static void	do_moves(t_stacks *stacks);
-
+static void	do_moves(t_stacks *stacks)
+{
+	while (stacks->moves->ra-- != 0)
+		ra(stacks->a);
+	while (stacks->moves->rra-- != 0)
+		rra(stacks->a);
+	pa(stacks);
+}
 
 void	new_min_stack_a(t_stacks *stacks)
 {
@@ -62,12 +68,28 @@ void	new_max_stack_a(t_stacks *stacks)
     ra(stacks->a);
 }
 
-void	do_moves(t_stacks *stacks)
+void	get_top_stack_a(t_stacks *stacks, int i)
 {
-	while (stacks->moves->ra-- != 0)
-		ra(stacks->a);
-	while (stacks->moves->rra-- != 0)
-		rra(stacks->a);
-	pa(stacks);
+	int	size;
+
+	stacks->moves->pb = 1;
+	stacks->moves->ra = 0;
+	stacks->moves->rra = 0;
+
+	size = stacks->a->size;
+	if (size % 2 == 0)
+	{
+		if (i + 1 > size / 2)
+			stacks->moves->rra = (size - i);
+		else
+			stacks->moves->ra = i;
+	}
+	else
+	{
+		if (i > size / 2)
+			stacks->moves->rra = (size - i);
+		else
+			stacks->moves->ra = i;
+	}
 }
 

@@ -14,12 +14,9 @@
 
 void	sort(t_stacks **stacks)
 {
-	const int	len = (*stacks)->a->size;
-
 	if(is_sorted((*stacks)->a))
 		return ;
-
-	if (len <= 5)
+	if ((*stacks)->a->size <= 5)
 		sort_tiny(stacks);
 	else
 		sort_large(stacks);
