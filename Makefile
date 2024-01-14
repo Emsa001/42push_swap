@@ -73,6 +73,6 @@ bonus: $(LIBFT) $(OBJ_BONUS)
 
 $(OBJ_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@§
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 .PHONY: all clean fclean re bonus

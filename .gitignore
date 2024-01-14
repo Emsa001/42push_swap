@@ -4,4 +4,6 @@ includes/*/*.o
 includes/*/*.a
 .vscode
 checker_linux
+checker_Mac
+test.py
 push_swap
