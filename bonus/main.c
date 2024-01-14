@@ -6,7 +6,7 @@
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 16:09:17 by escura            #+#    #+#             */
-/*   Updated: 2024/01/14 16:23:32 by escura           ###   ########.fr       */
+/*   Updated: 2024/01/14 17:01:32 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int nb, char **args)
 	int			fd;
 	t_stacks	*stacks;
 
+	line = NULL;
 	fd = STDIN_FILENO;
 	stacks = malloc(sizeof(t_stacks));
 	if (stacks == NULL)

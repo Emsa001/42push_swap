@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_elem_stack.c                                   :+:      :+:    :+:   */
+/*   new_elem.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:50:08 by escura            #+#    #+#             */
-/*   Updated: 2024/01/14 12:59:31 by escura           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:47:47 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
 static int	search_stack_a(t_stacks *stacks, int nbr)
 {

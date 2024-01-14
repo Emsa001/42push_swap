@@ -6,11 +6,11 @@
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:49:55 by escura            #+#    #+#             */
-/*   Updated: 2024/01/14 12:49:56 by escura           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:48:33 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
 void	check_min(t_stacks *stacks, t_stack *stack);
 void	check_max(t_stacks *stacks, t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:31:18 by escura            #+#    #+#             */
-/*   Updated: 2024/01/14 16:02:44 by escura           ###   ########.fr       */
+/*   Updated: 2024/01/14 17:01:13 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static long int	process_atoi(char *arg, int *j, int *sign)
 	num = 0;
 	while (arg[*j])
 	{
-		if (arg[*j] == '-' || arg[*j] == '+' && (*sign != -1 && *sign != 2))
+		if ((arg[*j] == '-' || arg[*j] == '+') && (*sign != -1 && *sign != 2))
 		{
 			if (arg[*j] == '-')
 				*sign = -1;

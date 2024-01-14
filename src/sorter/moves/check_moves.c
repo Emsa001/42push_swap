@@ -6,11 +6,11 @@
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:49:58 by escura            #+#    #+#             */
-/*   Updated: 2024/01/14 12:56:55 by escura           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:48:20 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
 // static void	print_cost(t_stacks *stacks)
 // {

@@ -15,15 +15,24 @@ NAME_BONUS = checker
 
 # Compiler and Flags
 CC = gcc
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 # Source Files
 SRC_DIR = src
 SRC_DIR_BONUS = bonus
 INCLUDES_DIR = includes
 
-SRC = $(wildcard $(SRC_DIR)/**/*.c) $(wildcard $(SRC_DIR)/*.c)
-SRC_BONUS = $(wildcard $(SRC_DIR_BONUS)/**/*.c) $(wildcard $(SRC_DIR_BONUS)/*.c)
+SRC = $(SRC_DIR)/push_swap.c $(SRC_DIR)/utils/general.c $(SRC_DIR)/utils/read_args.c $(SRC_DIR)/utils/read_utils.c \
+	$(SRC_DIR)/utils/sort_utils.c $(SRC_DIR)/sorter/sort_large.c $(SRC_DIR)/sorter/sort_tiny.c \
+	$(SRC_DIR)/sorter/sort.c $(SRC_DIR)/sorter/new/new_elem.c $(SRC_DIR)/sorter/new/new_max_min_a.c \
+	$(SRC_DIR)/sorter/new/new_max_min_b.c $(SRC_DIR)/sorter/moves/check_moves.c $(SRC_DIR)/sorter/moves/max_min.c \ 
+	$(SRC_DIR)/sorter/moves/move_back.c $(SRC_DIR)/operators/push.c $(SRC_DIR)/operators/reverse_rotate.c \ 
+	$(SRC_DIR)/operators/rotate.c $(SRC_DIR)/operators/swap.c
+	
+SRC_BONUS = $(SRC_DIR_BONUS)/main.c $(SRC_DIR_BONUS)/utils/ft_utils.c $(SRC_DIR_BONUS)/utils/general.c \
+			$(SRC_DIR_BONUS)/utils/read_args.c $(SRC_DIR_BONUS)/utils/read_utils.c $(SRC_DIR_BONUS)/operators/push.c \
+			$(SRC_DIR_BONUS)/operators/reverse_rotate.c $(SRC_DIR_BONUS)/operators/rotate.c \
+			$(SRC_DIR_BONUS)/operators/swap.c $(SRC_DIR_BONUS)/checker/execute.c $(SRC_DIR_BONUS)/checker/read.c
 
 OBJ_DIR = obj
 OBJ_DIR_BONUS = obj_bonus
@@ -64,11 +73,6 @@ bonus: $(LIBFT) $(OBJ_BONUS)
 
 $(OBJ_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-t: 
-	make
-	clear
-	./$(NAME) 5 2 7 1 6 3 9 4 8
+	$(CC) $(CFLAGS) -c $< -o $@§
 	
-.PHONY: all clean fclean re bonus t
+.PHONY: all clean fclean re bonus

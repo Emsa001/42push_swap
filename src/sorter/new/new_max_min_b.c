@@ -6,11 +6,11 @@
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:50:15 by escura            #+#    #+#             */
-/*   Updated: 2024/01/14 12:50:18 by escura           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:47:54 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
 int	find_index_stack_b(t_stacks *stacks, int nbr)
 {
