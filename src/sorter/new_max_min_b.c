@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   new_max_min_b.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/14 12:50:15 by escura            #+#    #+#             */
+/*   Updated: 2024/01/14 12:50:18 by escura           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 int	find_index_stack_b(t_stacks *stacks, int nbr)
 {
 	t_stack	*head_b;
-	int			i;
+	int		i;
 
 	i = 0;
 	head_b = stacks->b;
@@ -16,14 +28,15 @@ int	find_index_stack_b(t_stacks *stacks, int nbr)
 	return (i);
 }
 
-int search_num_stack_b(t_stacks *stacks, int nbr)
+int	search_num_stack_b(t_stacks *stacks, int nbr)
 {
 	t_stack	*head_b;
-	int			size;
-	int			flag;
-	int			i;
-	int j = 0;
+	int		size;
+	int		flag;
+	int		i;
+	int		j;
 
+	j = 0;
 	i = 0;
 	flag = 0;
 	head_b = stacks->b;
@@ -50,11 +63,9 @@ void	new_max_or_min_stack_b(t_stacks *stacks)
 
 	stacks->moves->rb = 0;
 	stacks->moves->rrb = 0;
-
 	i = find_index_stack_b(stacks, stacks->values->max_b);
 	if (stacks->b->arr[0] == stacks->values->max_b)
 		return ;
-	// printf("	i: %d\n", i);
 	size = stacks->b->size;
 	if (size % 2 == 0)
 	{
@@ -81,7 +92,7 @@ void	new_num_in_stack_b(t_stacks *stacks, int num)
 	stacks->moves->rb = 0;
 	stacks->moves->rrb = 0;
 	nbr = search_num_stack_b(stacks, num);
-	if(stacks->b->arr[0] == nbr)
+	if (stacks->b->arr[0] == nbr)
 		return ;
 	i = find_index_stack_b(stacks, nbr);
 	size = stacks->b->size;

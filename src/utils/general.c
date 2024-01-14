@@ -6,24 +6,22 @@
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:58:57 by escura            #+#    #+#             */
-/*   Updated: 2023/12/18 16:39:48 by escura           ###   ########.fr       */
+/*   Updated: 2024/01/14 15:53:02 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void free_stacks(t_stacks *stacks) {
-    if ((stacks)->a->arr != NULL) {
-        free((stacks)->a->arr);
-    }
-    if ((stacks)->b->arr != NULL) {
-        free((stacks)->b->arr);
-    }
-    free((stacks)->a);
-    free((stacks)->b);
-    free(stacks);
+void	free_stacks(t_stacks *stacks)
+{
+	if ((stacks)->a->arr != NULL)
+		free((stacks)->a->arr);
+	if ((stacks)->b->arr != NULL)
+		free((stacks)->b->arr);
+	free((stacks)->a);
+	free((stacks)->b);
+	free(stacks);
 }
-
 
 void	ft_error(char *msg, t_stacks *stacks)
 {
@@ -48,4 +46,12 @@ void	init_stacks(t_stacks **stacks)
 	(*stacks)->b->size = 0;
 	(*stacks)->a->name = 'a';
 	(*stacks)->b->name = 'b';
+}
+
+void	init_arrays(t_stacks **stacks, int n)
+{
+	(*stacks)->a->arr = (int *)malloc((n - 1) * sizeof(int));
+	(*stacks)->b->arr = (int *)malloc((n - 1) * sizeof(int));
+	if ((*stacks)->a->arr == NULL || (*stacks)->b->arr == NULL)
+		ft_error("Error", *stacks);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   max_min.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/14 12:49:55 by escura            #+#    #+#             */
+/*   Updated: 2024/01/14 12:49:56 by escura           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 void	check_min(t_stacks *stacks, t_stack *stack);
@@ -15,10 +27,10 @@ void	check_max_min(t_stacks *stacks, t_stack *stack)
 void	check_min(t_stacks *stacks, t_stack *stack)
 {
 	int	i;
-	int *min;
+	int	*min;
 
 	i = 0;
-	if(stack->name == 'a')
+	if (stack->name == 'a')
 		min = &stacks->values->min_a;
 	else
 		min = &stacks->values->min_b;
@@ -34,10 +46,10 @@ void	check_min(t_stacks *stacks, t_stack *stack)
 void	check_max(t_stacks *stacks, t_stack *stack)
 {
 	int	i;
-	int *max;
+	int	*max;
 
 	i = 0;
-	if(stack->name == 'a')
+	if (stack->name == 'a')
 		max = &stacks->values->max_a;
 	else
 		max = &stacks->values->max_b;

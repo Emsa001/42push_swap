@@ -1,47 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 15:07:04 by escura            #+#    #+#             */
-/*   Updated: 2024/01/14 13:10:56 by escura           ###   ########.fr       */
+/*   Created: 2024/01/14 16:10:16 by escura            #+#    #+#             */
+/*   Updated: 2024/01/14 16:16:40 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-static int	rotate(t_stack *stack)
+char	*free_join(char *buffer, char *buf)
 {
-	int	tmp;
+	char	*temp;
+
+	temp = ft_strjoin(buffer, buf);
+	free(buffer);
+	return (temp);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
 	int	i;
 
-	if (stack->size < 2)
-		return (-1);
-	tmp = stack->arr[0];
 	i = 0;
-	while (i < stack->size - 1)
+	while (s1[i] && s2[i])
 	{
-		stack->arr[i] = stack->arr[i + 1];
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	stack->arr[stack->size - 1] = tmp;
-	return (0);
-}
-
-void	ra(t_stack *stack)
-{
-	rotate(stack);
-}
-
-void	rb(t_stack *stack)
-{
-	rotate(stack);
-}
-
-void	rr(t_stacks *stacks)
-{
-	rotate(stacks->a);
-	rotate(stacks->b);
+	return (s1[i] - s2[i]);
 }

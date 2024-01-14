@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   new_elem_stack.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/14 12:50:08 by escura            #+#    #+#             */
+/*   Updated: 2024/01/14 12:59:31 by escura           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 static int	search_stack_a(t_stacks *stacks, int nbr)
 {
 	t_stack	*head_a;
-	int			size;
-	int			flag;
-	int			i;
+	int		size;
+	int		flag;
+	int		i;
 
 	i = 0;
 	flag = 0;
 	head_a = stacks->a;
-    size = stacks->a->size;
+	size = stacks->a->size;
 	while (flag == 0)
 	{
 		i = 0;
@@ -34,17 +46,15 @@ static void	do_moves_elem_stack_a(t_stacks *stacks)
 	pa(stacks);
 }
 
-
-void	new_elem_stack_a(t_stacks *stacks)
+static void	new_elem_stack_a_2(t_stacks *stacks)
 {
 	int	i;
 	int	size;
 
-	stacks->moves->ra = 0;
-	stacks->moves->rra = 0;
 	if (stacks->a->arr[0] != search_stack_a(stacks, stacks->b->arr[0]))
 	{
-		i = find_index_stack_a(stacks, search_stack_a(stacks, stacks->b->arr[0]));
+		i = find_index_stack_a(stacks, search_stack_a(stacks,
+					stacks->b->arr[0]));
 		size = stacks->a->size;
 		if (size % 2 == 0)
 		{
@@ -61,6 +71,12 @@ void	new_elem_stack_a(t_stacks *stacks)
 				stacks->moves->ra = i;
 		}
 	}
-	do_moves_elem_stack_a(stacks);
 }
 
+void	new_elem_stack_a(t_stacks *stacks)
+{
+	stacks->moves->ra = 0;
+	stacks->moves->rra = 0;
+	new_elem_stack_a_2(stacks);
+	do_moves_elem_stack_a(stacks);
+}

@@ -1,35 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_moves.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/14 12:49:58 by escura            #+#    #+#             */
+/*   Updated: 2024/01/14 12:56:55 by escura           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
-void print_cost(t_stacks *stacks)
-{
-    printf("	cost: %d\n", stacks->cheap->cost);
-    printf("	pb: %d\n", stacks->cheap->pb);
-    printf("	ra: %d\n", stacks->cheap->ra);
-    printf("	rb: %d\n", stacks->cheap->rb);
-    printf("	rr: %d\n", stacks->cheap->rr);
-    printf("	rra: %d\n", stacks->cheap->rra);
-    printf("	rrb: %d\n", stacks->cheap->rrb);
-    printf("	rrr: %d\n", stacks->cheap->rrr);
-}
+// static void	print_cost(t_stacks *stacks)
+// {
+// 	printf("	cost: %d\n", stacks->cheap->cost);
+// 	printf("	pb: %d\n", stacks->cheap->pb);
+// 	printf("	ra: %d\n", stacks->cheap->ra);
+// 	printf("	rb: %d\n", stacks->cheap->rb);
+// 	printf("	rr: %d\n", stacks->cheap->rr);
+// 	printf("	rra: %d\n", stacks->cheap->rra);
+// 	printf("	rrb: %d\n", stacks->cheap->rrb);
+// 	printf("	rrr: %d\n", stacks->cheap->rrr);
+// }
 
 void	check_moves(t_stacks *stacks)
 {
-	int			i;
-	t_stack	    *a;
+	int		i;
+	t_stack	*a;
 
 	a = stacks->a;
 	i = 0;
 	while (i++ < a->size)
 	{
 		get_top_stack_a(stacks, i - 1);
-		if (a->arr[i- 1] > stacks->values->max_b || \
-			a->arr[i - 1] < stacks->values->min_b)
+		if (a->arr[i - 1] > stacks->values->max_b)
+			new_max_or_min_stack_b(stacks);
+		else if (a->arr[i - 1] < stacks->values->min_b)
 			new_max_or_min_stack_b(stacks);
 		else
 			new_num_in_stack_b(stacks, a->arr[i - 1]);
 		check_double_moves(stacks);
 		check_cost(stacks, i);
-        // print_cost(stacks);
 	}
 }
 

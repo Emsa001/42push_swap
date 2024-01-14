@@ -6,15 +6,15 @@
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:58:30 by escura            #+#    #+#             */
-/*   Updated: 2023/12/18 22:18:23 by escura           ###   ########.fr       */
+/*   Updated: 2024/01/14 12:50:33 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void sort_three(t_stacks **stacks)
+void	sort_three(t_stacks **stacks)
 {
-    t_stack	*a;
+	t_stack	*a;
 	int		max_index;
 
 	a = (*stacks)->a;

@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   read_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 15:07:04 by escura            #+#    #+#             */
-/*   Updated: 2024/01/14 13:10:56 by escura           ###   ########.fr       */
+/*   Created: 2024/01/14 15:50:07 by escura            #+#    #+#             */
+/*   Updated: 2024/01/14 16:02:45 by escura           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-static int	rotate(t_stack *stack)
+int	is_space(char c)
 {
-	int	tmp;
-	int	i;
-
-	if (stack->size < 2)
-		return (-1);
-	tmp = stack->arr[0];
-	i = 0;
-	while (i < stack->size - 1)
-	{
-		stack->arr[i] = stack->arr[i + 1];
-		i++;
-	}
-	stack->arr[stack->size - 1] = tmp;
+	if (c == ' ' || c == '\t')
+		return (1);
 	return (0);
 }
 
-void	ra(t_stack *stack)
+void	free_split(char **arg)
 {
-	rotate(stack);
+	int	i;
+
+	i = 0;
+	while (arg[i])
+	{
+		free(arg[i]);
+		i++;
+	}
+	free(arg);
 }
 
-void	rb(t_stack *stack)
+int	count_size(int nb, char **args)
 {
-	rotate(stack);
-}
+	int	n;
 
-void	rr(t_stacks *stacks)
-{
-	rotate(stacks->a);
-	rotate(stacks->b);
+	n = 0;
+	if (nb == 2)
+		while (args[1][n])
+			n++;
+	else
+		while (args[n])
+			n++;
+	return (n);
 }

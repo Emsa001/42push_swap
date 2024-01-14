@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   new_max_min_a.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/14 12:50:12 by escura            #+#    #+#             */
+/*   Updated: 2024/01/14 13:04:46 by escura           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 static void	do_moves(t_stacks *stacks)
@@ -38,13 +50,11 @@ void	new_min_stack_a(t_stacks *stacks)
 	do_moves(stacks);
 }
 
-void	new_max_stack_a(t_stacks *stacks)
+static void	new_max_stack_a_2(t_stacks *stacks)
 {
 	int	i;
 	int	size;
 
-	stacks->moves->ra = 0;
-	stacks->moves->rra = 0;
 	if (stacks->a->arr[stacks->a->size - 1] != stacks->values->max_a)
 	{
 		i = find_index_stack_a(stacks, stacks->values->max_a);
@@ -64,8 +74,15 @@ void	new_max_stack_a(t_stacks *stacks)
 				stacks->moves->ra = i + 1;
 		}
 	}
+}
+
+void	new_max_stack_a(t_stacks *stacks)
+{
+	stacks->moves->ra = 0;
+	stacks->moves->rra = 0;
+	new_max_stack_a_2(stacks);
 	do_moves(stacks);
-    ra(stacks->a);
+	ra(stacks->a);
 }
 
 void	get_top_stack_a(t_stacks *stacks, int i)
@@ -75,7 +92,6 @@ void	get_top_stack_a(t_stacks *stacks, int i)
 	stacks->moves->pb = 1;
 	stacks->moves->ra = 0;
 	stacks->moves->rra = 0;
-
 	size = stacks->a->size;
 	if (size % 2 == 0)
 	{
@@ -92,4 +108,3 @@ void	get_top_stack_a(t_stacks *stacks, int i)
 			stacks->moves->ra = i;
 	}
 }
-

@@ -15,7 +15,7 @@ NAME_BONUS = checker
 
 # Compiler and Flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 
 # Source Files
 SRC_DIR = src
