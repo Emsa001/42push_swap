@@ -13,7 +13,7 @@ def generate_push_swap_commands(numbers):
 
 def generate_sets_and_commands(size, max_operations):
     i = 0
-    for i in range(100):
+    for i in range(1000):
         random_numbers = generate_random_input(size)
         push_swap_commands = generate_push_swap_commands(random_numbers)
         lines_command = f"./push_swap {push_swap_commands} | wc -l"

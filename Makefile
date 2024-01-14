@@ -25,8 +25,8 @@ INCLUDES_DIR = includes
 SRC = $(SRC_DIR)/push_swap.c $(SRC_DIR)/utils/general.c $(SRC_DIR)/utils/read_args.c $(SRC_DIR)/utils/read_utils.c \
 	$(SRC_DIR)/utils/sort_utils.c $(SRC_DIR)/sorter/sort_large.c $(SRC_DIR)/sorter/sort_tiny.c \
 	$(SRC_DIR)/sorter/sort.c $(SRC_DIR)/sorter/new/new_elem.c $(SRC_DIR)/sorter/new/new_max_min_a.c \
-	$(SRC_DIR)/sorter/new/new_max_min_b.c $(SRC_DIR)/sorter/moves/check_moves.c $(SRC_DIR)/sorter/moves/max_min.c \ 
-	$(SRC_DIR)/sorter/moves/move_back.c $(SRC_DIR)/operators/push.c $(SRC_DIR)/operators/reverse_rotate.c \ 
+	$(SRC_DIR)/sorter/new/new_max_min_b.c $(SRC_DIR)/sorter/moves/check_moves.c $(SRC_DIR)/sorter/moves/max_min.c \
+	$(SRC_DIR)/sorter/moves/move_back.c $(SRC_DIR)/operators/push.c $(SRC_DIR)/operators/reverse_rotate.c \
 	$(SRC_DIR)/operators/rotate.c $(SRC_DIR)/operators/swap.c
 	
 SRC_BONUS = $(SRC_DIR_BONUS)/main.c $(SRC_DIR_BONUS)/utils/ft_utils.c $(SRC_DIR_BONUS)/utils/general.c \
