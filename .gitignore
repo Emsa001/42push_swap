@@ -4,5 +4,4 @@ includes/*/*.o
 includes/*/*.a
 .vscode
 checker_linux
-checker
 push_swap
