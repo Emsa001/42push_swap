@@ -49,12 +49,14 @@ static long int	process_atoi(char *arg, int *j, int *sign)
 		}
 		else
 		{
-			if (!ft_isdigit(arg[*j]) || num > (INT_MAX - (arg[*j] - '0')) / 10)
+			if (!ft_isdigit(arg[*j]))
 				return (-1);
 			num = num * 10 + arg[*j] - '0';
 			(*j)++;
 		}
 	}
+	if (num * *sign > INT_MAX || num * *sign < INT_MIN)
+		return (-1);
 	return (num);
 }
 
