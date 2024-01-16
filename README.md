@@ -39,10 +39,6 @@ Checker
 ```
 Remember to ctrl + d after writing operations to checker
 
-## Demo
-
-![Demo](https://github.com/Emsa001/42_minitalk/blob/main/demo/usage.gif?raw=true)
-
 ## Thank you
 Big thanks to https://medium.com/@ayogun/push-swap-c1f5d2d41e97
 Calculation cost is a nice idea and it helped me a lot
