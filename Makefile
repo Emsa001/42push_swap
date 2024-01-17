@@ -10,16 +10,24 @@
 #                                                                              #
 # **************************************************************************** #
 
+# Names
 NAME = push_swap
 NAME_BONUS = checker
 
+# Colors
+RED=\033[0;31m
+GREEN=\033[0;32m
+YELLOW=\033[0;33m
+NC=\033[0m # No Color
+
 # Compiler and Flags
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-# Source Files
+# Source Files and Object Files
 SRC_DIR = src
 SRC_DIR_BONUS = bonus
+INCLUDES_DIR = includes
 INCLUDES_DIR = includes
 
 SRC = $(SRC_DIR)/push_swap.c $(SRC_DIR)/utils/general.c $(SRC_DIR)/utils/read_args.c $(SRC_DIR)/utils/read_utils.c \
@@ -47,32 +55,44 @@ LIBFT_MAKE = $(MAKE) -C $(LIBFT_DIR)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-
+	@echo "${YELLOW}Compiling $(NAME)...${NC}"
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) > /dev/null
+	@echo "${GREEN}$(NAME) compiled successfully!${NC}"
+	
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "${GREEN}Compiled $< successfully!${NC}"
 
 $(LIBFT):
 	$(LIBFT_MAKE)
 
 clean:
-	$(LIBFT_MAKE) clean
-	rm -rf $(OBJ_DIR)
-	rm -rf $(OBJ_DIR_BONUS)
+	@echo "${YELLOW}Cleaning up...${NC}"
+	@$(LIBFT_MAKE) clean > /dev/null
+	@rm -rf $(OBJ_DIR) > /dev/null
+	@rm -rf $(OBJ_DIR_BONUS) > /dev/null
+	@echo "${GREEN}Cleaned up successfully!${NC}"
 
 fclean: clean
-	$(LIBFT_MAKE) fclean
-	rm -f $(NAME)
-	rm -f $(NAME_BONUS)
+	@echo "${YELLOW}Full cleaning up...${NC}"
+	@$(LIBFT_MAKE) fclean > /dev/null
+	@rm -f $(NAME) > /dev/null
+	@rm -f $(NAME_BONUS) > /dev/null
+	@echo "${GREEN}Full cleaned up successfully!${NC}"
 
 re: fclean all
 
-bonus: $(LIBFT) $(OBJ_BONUS)
-	$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) -o $(NAME_BONUS)
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(LIBFT) $(OBJ_BONUS)
+	@echo "${YELLOW}Compiling bonus...${NC}"
+	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) -o $(NAME_BONUS) > /dev/null
+	@echo "${GREEN}Bonus compiled successfully!${NC}"
 
 $(OBJ_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "${GREEN}Compiled $< successfully!${NC}"
 	
 .PHONY: all clean fclean re bonus

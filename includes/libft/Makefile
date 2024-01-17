@@ -19,16 +19,25 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
+	@echo "Compiling all targets..."
+	@$(MAKE) $(NAME) &> /dev/null
+	@echo "All targets compiled successfully!"
 
 $(NAME): $(OBJECTS)
-	ar -r $@ $?
+	@echo "Compiling $(NAME)..."
+	@ar -r $@ $? &> /dev/null
+	@echo "$(NAME) compiled successfully!"
 
 clean:
-	rm -f $(OBJECTS) $(BOBJECTS)
+	@echo "Cleaning up..."
+	@rm -f $(OBJECTS) $(BOBJECTS) &> /dev/null
+	@echo "Cleaned up successfully!"
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "Full cleaning up..."
+	@rm -f $(NAME) &> /dev/null
+	@echo "Full cleaned up successfully!"
 
 re: fclean all
 
-.Phony: all clean fclean re
+.PHONY: all clean fclean re
