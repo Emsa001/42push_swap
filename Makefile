@@ -36,7 +36,7 @@ SRC = $(SRC_DIR)/push_swap.c $(SRC_DIR)/utils/general.c $(SRC_DIR)/utils/read_ar
 	$(SRC_DIR)/sorter/new/new_max_min_b.c $(SRC_DIR)/sorter/moves/check_moves.c $(SRC_DIR)/sorter/moves/max_min.c \
 	$(SRC_DIR)/sorter/moves/move_back.c $(SRC_DIR)/operators/push.c $(SRC_DIR)/operators/reverse_rotate.c \
 	$(SRC_DIR)/operators/rotate.c $(SRC_DIR)/operators/swap.c
-	
+
 SRC_BONUS = $(SRC_DIR_BONUS)/main.c $(SRC_DIR_BONUS)/utils/ft_utils.c $(SRC_DIR_BONUS)/utils/general.c \
 			$(SRC_DIR_BONUS)/utils/read_args.c $(SRC_DIR_BONUS)/utils/read_utils.c $(SRC_DIR_BONUS)/operators/push.c \
 			$(SRC_DIR_BONUS)/operators/reverse_rotate.c $(SRC_DIR_BONUS)/operators/rotate.c \
@@ -58,7 +58,7 @@ $(NAME): $(LIBFT) $(OBJ)
 	@echo "${YELLOW}Compiling $(NAME)...${NC}"
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) > /dev/null
 	@echo "${GREEN}$(NAME) compiled successfully!${NC}"
-	
+
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -94,5 +94,5 @@ $(OBJ_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo "${GREEN}Compiled $< successfully!${NC}"
-	
+
 .PHONY: all clean fclean re bonus
