@@ -17,7 +17,7 @@ def generate_sets_and_commands(size, max_operations):
         random_numbers = generate_random_input(size)
         push_swap_commands = generate_push_swap_commands(random_numbers)
         lines_command = f"./push_swap {push_swap_commands} | wc -l"
-        checker_command = f"./push_swap {push_swap_commands} | ./checker_Mac {push_swap_commands}"
+        checker_command = f"./push_swap {push_swap_commands} | ./checker_linux {push_swap_commands}"
         
         result = subprocess.run(lines_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         result2 = subprocess.run(checker_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
